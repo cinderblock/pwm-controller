@@ -22,7 +22,7 @@ npm run server
 
 ## Development
 
-Server with babel-watch:
+Server with nodemon:
 ```
 npm run server-dev
 ```
