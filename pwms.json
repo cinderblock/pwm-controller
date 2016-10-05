@@ -1,0 +1,8 @@
+{
+  "demo" : {
+    "name": "Demo",
+    "type": "pwm",
+    "device": 0,
+    "channel": 0
+  }
+}
