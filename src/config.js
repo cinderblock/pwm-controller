@@ -1,3 +1,8 @@
+const commandLineArgs = require('command-line-args');
+
+var cmd = commandLineArgs([
+  {name: 'development', alias: 'd', type: Boolean},
+]);
 
 var config = {
   pwmsFile: process.env.npm_package_config_pwmsfile || '../pwms.json',
@@ -9,6 +14,7 @@ var config = {
   client: {
     serverOrigin: process.env.npm_package_config_serverorigin || '',
   },
+  development: cmd.development || process.env.npm_package_config_development || process.env.development,
 };
 
 module.exports = config;

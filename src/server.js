@@ -4,6 +4,8 @@ var express = require('express');
 var http = require('http');
 var socketIO = require('socket.io');
 var pwm = require('pwm');
+var webpackMiddleware = require('webpack-dev-middleware');
+var webpack = require('webpack');
 
 var config = require('./config.js');
 var pwms = require(config.pwmsFile);
@@ -18,6 +20,19 @@ for (var id in pwms) {
   pwms[id].device = pwm.export(pwms[id].channel, pwms[id].channel, () => {
     io.sockets.emit('pwmId', id);
   });
+}
+
+if (config.development) {
+  app.use(webpackMiddleware(webpack(require('../webpack.config.js')), {
+    publicPath: '/',
+    stats: {
+      colors: true,
+    },
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: true,
+    },
+  }));
 }
 
 io.on('connection', socket => {
