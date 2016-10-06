@@ -39,7 +39,18 @@ export default class PWMController extends React.Component {
   }
   render() {
     var perc = this.state.duty / this.state.period;
-    var hz = 1 / (this.state.period);
+    var hz = 1000 * 1000 / (this.state.period);
+    var hzUnits;
+
+    if (hz > 1000*1000) {
+      hz /= 1000 * 1000;
+      hzUnits = 'MHz';
+    } else if (hz > 1000) {
+      hz /= 1000;
+      hzUnits = 'kHz';
+    } else {
+      hzUnits = 'Hz';
+    }
 
     return (
       <div className="PWMController">
@@ -49,7 +60,7 @@ export default class PWMController extends React.Component {
           onChange={this.handleChange}
         >
           <div className="duty">{(perc*100).toFixed(2)}%</div>
-          <div className="period">Hz</div>
+          <div className="period">{hz.toPrecision(3)}{hzUnits}</div>
         </ReactSlider>
       </div>
     );
