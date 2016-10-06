@@ -42,7 +42,7 @@ io.on('connection', socket => {
     if (command.type == 'reset') {
       pwms[command.id].device.reset();
     } else if (command.type == 'enable') {
-      pwms[command.id].device.setEnable(command.data, () => {});
+      pwms[command.id].device.setEnable(command.data || 1, () => {});
     } else if (command.type == 'period') {
       pwms[command.id].device.setPeriod(command.data, () => {});
     } else if (command.type == 'duty') {
