@@ -8,7 +8,6 @@ const node_modules = new RegExp(`^${__dirname.replace(/\\/g, '\\\\')}${rsep}node
 
 module.exports = {
     entry: [
-      'bootstrap-loader',
       './src/client.jsx',
     ],
     output: {
@@ -21,9 +20,9 @@ module.exports = {
             { test: /\.jsx?$/, loader: 'babel', exclude: node_modules },
             { test: /\.json$/, loader: 'json' },
             { test: /\.pug$/, loader: 'pug' },
+            { test: /\.less$/, loader: 'style!css!less' },
             { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
             { test: /\.(ttf|eot)$/, loader: 'file' },
-            { test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
         ],
     },
     plugins: [
