@@ -8,7 +8,7 @@ var config = {
   },
   client: {
     serverOrigin: process.env.npm_package_config_serverorigin || '',
-  }
+  },
 };
 
 module.exports = config;
