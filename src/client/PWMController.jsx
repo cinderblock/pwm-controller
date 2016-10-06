@@ -8,7 +8,7 @@ import config from '../config.js';
 // TODO: Parametrize this...
 var id = 'demo';
 
-const MAXslider = 100 * 1000;
+const MAXslider = 20 * 1000;
 
 export default class PWMController extends React.Component {
   constructor(props) {
