@@ -9,7 +9,9 @@
     "server": "node .",
     "start": "npm run server",
     "postinstall": "npm run build-client",
-    "build-client": "webpack"
+    "build-client": "webpack",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -51,12 +53,14 @@
     "socket.io": "^1.4.8",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "eslint": "^3.6.0",
     "nodemon": "^1.10.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-dev-server": "^1.15.2"
-  }
+  },
+  "snyk": true
 }
