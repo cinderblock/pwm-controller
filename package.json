@@ -54,7 +54,7 @@
     "webpack": "^1.13.2"
   },
   "devDependencies": {
-    "eslint": "^3.6.0",
+    "eslint": "^6.6.0",
     "nodemon": "^1.10.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-dev-server": "^1.15.2"
